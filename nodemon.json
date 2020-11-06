@@ -1,6 +1,0 @@
-{
-    "env": {
-        "MONGO_ATLAS_PW" : "recipeApp",
-        "JWT_KEY": "sadns1231asdas"
-    }
-}
