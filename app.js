@@ -4,8 +4,8 @@ const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
 
-const examplesRoute = require('./api/routes/examples');
 const userRoute = require('./api/routes/user');
+const homeRoute = require('./api/routes/home');
 
 mongoose.connect('mongodb+srv://recipeAppAdmin:' + process.env.MONGO_ATLAS_PW + '@recipeapp0.islmk.mongodb.net/<dbname>?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://recipeAppAdmin:' + process.env.MONGO_ATLAS_PW + 
 app.use(morgan('dev'));
 
 //Parse requets of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 //Parse requets of content-type -application/json
 app.use(bodyParser.json())
 
@@ -32,9 +32,8 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use('/examples', examplesRoute);
 app.use('/user', userRoute);
-
+app.use('/home', homeRoute);
 
 app.use((req, res, next) => {
     const error = new Error('Not Found');
