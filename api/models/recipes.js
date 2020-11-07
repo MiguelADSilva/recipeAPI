@@ -4,7 +4,7 @@ const recipeSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     recipeName: { type: String, require: true, unique: true },
     recipeSteps: { type: String, require: true },
-    imageURL: { type: String, require: false },
+    imageURL: { type: String, require: true },
     _createdAt: Date
 });
 
