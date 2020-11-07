@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const userRoute = require('./api/routes/user');
 const homeRoute = require('./api/routes/home');
+const recipeRoute = require('./api/routes/recipes');
 
 mongoose.connect('mongodb+srv://recipeAppAdmin:' + process.env.MONGO_ATLAS_PW + '@recipeapp0.islmk.mongodb.net/<dbname>?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
 
 app.use('/user', userRoute);
 app.use('/home', homeRoute);
+app.use('/recipe', recipeRoute);
 
 app.use((req, res, next) => {
     const error = new Error('Not Found');
