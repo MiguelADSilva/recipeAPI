@@ -18,7 +18,7 @@ exports.getAll_Recipes = (req, res, next) => {
                         _createdAt: result._createdAt,
                         request: {
                             type: 'GET',
-                            url: "http://localhost:3000/home/" + result._id
+                            url: process.env.APP_URL + result._id
                         }
                     };
                 })

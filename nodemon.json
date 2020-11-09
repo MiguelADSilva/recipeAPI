@@ -1,6 +1,7 @@
 {
     "env": {
         "MONGO_ATLAS_PW" : "recipeApp",
-        "JWT_KEY": "sadns1231asdas"
+        "JWT_KEY": "sadns1231asdas",
+        "APP_URL": "http://localhost:3000/home/"
     }
 }
